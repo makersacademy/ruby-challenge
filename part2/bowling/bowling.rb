@@ -21,7 +21,11 @@ class Game
     each_go_score = []
     current_go = 0 
     until current_go === split_rolls.length
-      if is_a_strike?(split_rolls[current_go])
+      if split_rolls.length === 11 && current_go === 9
+        total_go_score = split_rolls[current_go].reduce(:+) + split_rolls[current_go + 1].reduce(:+)
+        each_go_score << total_go_score
+        break
+      elsif is_a_strike?(split_rolls[current_go])
         total_go_score = split_rolls[current_go].reduce(:+) + split_rolls[current_go + 1].reduce(:+)
         each_go_score << total_go_score
       elsif is_a_spare?(split_rolls[current_go])
