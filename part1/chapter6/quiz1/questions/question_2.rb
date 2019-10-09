@@ -20,3 +20,26 @@
 # * Note: You can assume the players will only ever input `rock`,
 #   `paper` or `scissors`.
 
+puts "Player One, enter your move"
+player_one_move = gets.downcase.chomp
+puts "Player Two, enter your move"
+player_two_move = gets.downcase.chomp
+r = "rock"
+s = "scissors"
+p = "paper"
+while true do
+  if player_one_move == player_two_move
+    puts "It's a draw"
+    break
+  elsif (player_one_move == r && player_two_move == s) ||
+        (player_one_move == s && player_two_move == p) ||
+        (player_one_move == p && player_two_move == r)
+    puts "Player 1 wins"
+    break
+  elsif (player_two_move == r && player_one_move == s) ||
+        (player_two_move == s && player_one_move == p) ||
+        (player_two_move == p && player_one_move == r)
+    puts "Player 2 wins"
+    break
+  end
+end
