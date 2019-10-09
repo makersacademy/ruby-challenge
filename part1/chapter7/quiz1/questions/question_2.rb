@@ -51,3 +51,29 @@
 #   input integers for group numbers that exist when they are asked
 #   for the number of a group to print out.
 
+  #class Group
+  #def initialize(number_of_people)
+
+   # @people = {name: ""}
+
+  #def person
+  #  @people
+  #end
+
+  #def add_person(one_person)
+  #  @people.push(one_person)
+  #end
+
+#end
+
+
+
+
+puts "How many groups would you like to create?"
+group_string = gets.chomp
+num_of_groups = group_string.to_i
+group_array = Array.new(num_of_groups) {Array.new()}
+
+# creates array of arrays, need to loop based on number
+# entered and reset counter on each loop so that each name entered goes into
+# the next loop over and over until user enters stop
