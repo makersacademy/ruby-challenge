@@ -69,7 +69,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_consecutive_strikes_each_get_the_two_roll_bonus
-    skip
+    # skip
     game = Game.new
     rolls = [10, 10, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rolls.each { |pins| game.roll(pins) }

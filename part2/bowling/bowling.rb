@@ -19,14 +19,16 @@ class Game
     end
 
     def strike_check
-        if @rolls[0] == 10
-            @rolls[0] += @rolls[1] + @rolls[2]
+        for i in (0...@rolls.size-1) do 
+            if @rolls[i] == 10
+                @rolls[i] += @rolls[i+1] + @rolls[i+2]
+            end
         end
     end
 
     def score
-        spare_check
         strike_check
+        spare_check
         @score = @rolls.sum
     end
 
