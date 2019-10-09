@@ -19,7 +19,7 @@ class Game
     end
 
     def strike_check
-        for i in (0...@rolls.size-1) do 
+        for i in (0...@rolls.size-3) do 
             if @rolls[i] == 10
                 @rolls[i] += @rolls[i+1] + @rolls[i+2]
             end
