@@ -1,7 +1,7 @@
 def valid_isbn?(string)
   if contains_only_valid_characters? string
     number_only_string = string.tr("-", "")
-    conforms_to_isbn_10_formula(number_only_string)
+    conforms_to_isbn_10_formula?(number_only_string)
   else
     false
   end
@@ -16,7 +16,7 @@ def contains_only_valid_characters?(string)
   true
 end
 
-def conforms_to_isbn_10_formula(string)
+def conforms_to_isbn_10_formula?(string)
   return false if string.length != 10
 
   numbers = string.chars.map { |char| char == "X" ? 10 : char.to_i }
