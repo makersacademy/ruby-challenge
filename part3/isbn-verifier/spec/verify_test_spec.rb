@@ -15,6 +15,9 @@ describe "verification of ISBN-10" do
     it "returns true given a valid ISBN-10 string" do
       expect(valid_isbn?("3-598-21509-8")).to eq true
     end
+    it "returns true given a valid ISBN-10 string including X character" do
+      expect(valid_isbn?("3-598-21507-X")).to eq true
+    end
   end
 
 end
