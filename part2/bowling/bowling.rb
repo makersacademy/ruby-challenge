@@ -1,55 +1,58 @@
 class Game
   def initialize
-    @rolls = []
-    @score = 0
+    @rolls = [] 
+    @rolls_index_position = 0
+    @score = 0   
+    @frame = 1
   end
 
   def roll(pins)
-    @rolls.push(pins)
+    @rolls << pins
   end
 
   def score
-    add_total_score
+    calculate_roll_score
+    
     @score
   end
 
-  def add_total_score 
-    @score = score_each_go.reduce(:+)
+  def update_roll_position(number)
+    @rolls_index_position += number
   end
-  
-  def score_each_go
-    each_go_score = []
-    current_go = 0 
-    until current_go === split_rolls.length
-      if split_rolls.length === 11 && current_go === 9
-        total_go_score = split_rolls[current_go].reduce(:+) + split_rolls[current_go + 1].reduce(:+)
-        each_go_score << total_go_score
-        break
-      elsif is_a_strike?(split_rolls[current_go])
-        total_go_score = split_rolls[current_go].reduce(:+) + split_rolls[current_go + 1].reduce(:+)
-        each_go_score << total_go_score
-      elsif is_a_spare?(split_rolls[current_go])
-        total_go_score = split_rolls[current_go].reduce(:+) + split_rolls[current_go + 1].first
-        each_go_score << total_go_score
+
+  def is_a_strike?
+    @rolls[@rolls_index_position] === 10
+  end
+
+  def is_a_spare?
+    @rolls[@rolls_index_position] + @rolls[@rolls_index_position + 1] === 10
+  end
+
+  def is_last_frame?
+    @frame === 10
+  end   
+
+  def calculate_roll_score
+      if is_last_frame? 
+        @score += @rolls[@rolls_index_position + 1] + @rolls[@rolls_index_position + 2] + 10
+        @rolls_index_position = @rolls.length - 1 
+      elsif is_a_strike?
+        @score += @rolls[@rolls_index_position + 2] + @rolls[@rolls_index_position + 3] + 10
+        update_roll_position(1)
+      elsif is_a_spare?
+        @score += @rolls[@rolls_index_position + 2] + 10
+        update_roll_position(2)
       else
-        total_go_score = split_rolls[current_go].reduce(:+)
-        each_go_score << total_go_score
+        @score += @rolls[@rolls_index_position] + @rolls[@rolls_index_position + 1]
+        update_roll_position(2)
       end
-      current_go += 1
+      @frame += 1
+  end
+
+  def calculate_total_score
+    while @rolls_index_position < @rolls.length - 1 
+      calculate_roll_score
+      puts "frame: #{frame} index: #{@rolls_index_position} score: #{@score}" 
     end
-    return each_go_score
-  end
-
-  def is_a_spare?(go)
-    go.reduce(:+) === 10    
-  end
-
-  def is_a_strike?(go)
-    go.first === 10 
-  end
-
-
-  def split_rolls
-    @rolls.each_slice(2).to_a
   end
 end
