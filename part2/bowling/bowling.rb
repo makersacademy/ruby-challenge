@@ -22,6 +22,7 @@ class Turn
   end
 
   def roll(pins)
+    frames.last << pins
   end
 
   def score
@@ -34,9 +35,17 @@ class Frame
 
   def initialize(pins = nil)
     @goes = []
+
+    if pins
+      goes << pins
+    end
   end
 
   def score
     goes.inject(0, :+)
+  end
+
+  def <<(pins)
+    goes << pins
   end
 end
