@@ -20,3 +20,22 @@
 # * Note: You can assume the players will only ever input `rock`,
 #   `paper` or `scissors`.
 
+puts "This is a two player game \"Rock, Paper, Scissors\", you can only input either "rock", "paper" or "scissors" "
+puts "Player 1 do your move: "
+
+
+p1_input = gets.chomp
+#total_p1_input << p1_input
+
+puts "Player 2 do your move: "
+p2_input = gets.chomp
+
+  if (p1_input == "rock" && p2_input == "rock" )|| (p1_input == "paper" && p2_input == "paper") || (p1_input == "scissors" && p2_input == "scissors")
+		puts "It is a draw"
+	end
+	if (p1_input == "rock" && p2_input == "scissors" )|| (p1_input == "paper" && p2_input == "rock") || (p1_input == "scissors" && p2_input == "paper")
+		puts "Player 1 wins"
+	end
+	if (p1_input == "rock" && p2_input == "paper" )|| (p1_input == "paper" && p2_input == "scissors") || (p1_input == "scissors" && p2_input == "rock")
+		puts "Player 2 wins"
+	end
