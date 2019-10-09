@@ -20,3 +20,33 @@
 # * Note: You can assume the players will only ever input `rock`,
 #   `paper` or `scissors`.
 
+puts "Player 1 pick rock, paper or scissors"
+ans1 = gets.chomp
+puts "Player 2 pick rock, paper or scissors"
+ans2 = gets.chomp
+
+if (ans1 == "rock")
+  if (ans2 == "rock")
+    puts "It's a draw"
+  elsif (ans2 == "paper")
+    puts "Player 2 wins"
+  elsif (ans2 == "scissors")
+    puts "Player 1 wins"
+  end
+elsif (ans1 == "paper")
+  if (ans2 == "rock")
+    puts "Player 1 wins"
+  elsif (ans2 == "paper")
+    puts "It's a draw"
+  elsif (ans2 == "scissors")
+    puts "Player 2 wins"
+  end
+elsif (ans1 == "scissors")
+  if (ans2 == "rock")
+    puts "Player 2 wins"
+  elsif (ans2 == "paper")
+    puts "Player 1 wins"
+  elsif (ans2 == "scissors")
+    puts "It's a draw"
+  end
+end
