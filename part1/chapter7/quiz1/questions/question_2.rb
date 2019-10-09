@@ -50,4 +50,31 @@
 #   many groups they want to create.  You can assume the user will
 #   input integers for group numbers that exist when they are asked
 #   for the number of a group to print out.
+puts "Enter number of teams"
+number_of_teams = gets.to_i
+teams_array = Array.new(number_of_teams) { [] }
 
+puts "Enter a name"
+input = gets.chomp
+
+team_num = 0
+
+while input != 'stop' do
+  teams_array[team_num] << input
+  team_num += 1 
+  if team_num > number_of_teams - 1 
+    team_num = 0 
+  end
+  puts "Enter a name"
+  input = gets.chomp
+end
+
+puts "Enter the number of the group you want to print out"
+group_num = gets.chomp
+
+while group_num != 'stop' do
+  group = teams_array[group_num.to_i - 1]
+  puts group.join(", ")
+  puts "Enter the number of the group you want to print out"
+  group_num = gets.chomp
+end
