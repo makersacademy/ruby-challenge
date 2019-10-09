@@ -1,11 +1,13 @@
 class Game
 	def initialize
 		@score = []
+		@frames_arr = []
 		@bonus = 0
 	end
 
 	def score
-		@score.sum
+		@frames_arr = @score.each_slice(2).to_a
+		@score = @frames_arr.flatten.inject(:+)
 	end
 
 
