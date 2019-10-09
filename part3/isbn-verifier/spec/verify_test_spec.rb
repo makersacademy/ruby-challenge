@@ -1,3 +1,5 @@
+require_relative '../lib/isbn_verification'
+
 describe "verification of ISBN-10" do
 
   context "invalid ISBN-10 string" do
@@ -13,7 +15,7 @@ describe "verification of ISBN-10" do
   end
   context "valid ISBN-10 string" do
     it "returns true given a valid ISBN-10 string" do
-      expect(valid_isbn?("3-598-21509-8")).to eq true
+      expect(valid_isbn?("3-598-21508-8")).to eq true
     end
     it "returns true given a valid ISBN-10 string including X character" do
       expect(valid_isbn?("3-598-21507-X")).to eq true
