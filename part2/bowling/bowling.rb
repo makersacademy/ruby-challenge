@@ -10,8 +10,12 @@ class Game
     end
 
     def score()
-        if @rolls[0] + @rolls[1] == 10
-            @rolls[2] = @rolls[2]*2
+       
+        for i in (0...@rolls.length).step(2) do
+            if @rolls[i] + @rolls[i+1] == 10
+                @rolls[i+1] += @rolls[i+2] 
+            i += 2
+            end 
         end
         @score = @rolls.sum
     end
