@@ -20,3 +20,17 @@
 # * Note: You can assume the players will only ever input `rock`,
 #   `paper` or `scissors`.
 
+puts "Player 1 make your move"
+move1 = gets.chomp
+
+puts "Player 2 make your move"
+move2 = gets.chomp
+
+case [move1, move2]
+  when ['rock', 'rock'], ['paper', 'paper'], ['scissors', 'scissors']
+    puts "It's a draw"
+  when ['rock', 'scissors'], ['paper', 'rock'], ['scissors', 'paper']
+    puts "Player 1 wins"
+  when ['paper', 'scissors'], ['rock', 'paper'], ['scissors', 'rock']
+    puts "Player 2 wins"
+end
