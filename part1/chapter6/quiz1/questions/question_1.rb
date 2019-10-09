@@ -27,3 +27,20 @@
 # * Note: You can assume that the user will always enter either an
 #   integer or `stop`.
 
+def sum_num
+total_numbers = []
+
+puts "Give me a number"
+  while number = gets.chomp
+  total_numbers.push(number.to_i)
+  sum = 0
+  total_numbers.each { |num| 
+    sum += num
+  }
+  puts sum
+
+  if number == "stop"
+    break
+  end
+  end
+end
