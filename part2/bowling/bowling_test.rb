@@ -28,7 +28,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_points_scored_in_the_roll_after_a_spare_are_counted_twice
-    skip
+    # skip
     game = Game.new
     rolls = [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rolls.each { |pins| game.roll(pins) }
@@ -36,7 +36,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_consecutive_spares_each_get_a_one_roll_bonus
-    skip
+    # skip
     game = Game.new
     rolls = [5, 5, 3, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rolls.each { |pins| game.roll(pins) }
