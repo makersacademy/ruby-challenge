@@ -50,4 +50,26 @@
 #   many groups they want to create.  You can assume the user will
 #   input integers for group numbers that exist when they are asked
 #   for the number of a group to print out.
+def get_groups
+  groups_array = []
+  puts "How many groups would you like to create? "
+  groups = gets.chomp
+  groups_array << groups
+end
 
+def get_names
+  names_array = []
+  puts "Enter a name: "
+  puts "(type 'stop' to end)"
+  names = gets.chomp
+  names_array << names
+  until names == "stop" do
+    puts "Enter another?"
+    names = gets.chomp
+    names_array << names
+  end
+  print names_array
+end
+
+get_groups
+get_names
