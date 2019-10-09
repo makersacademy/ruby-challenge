@@ -19,3 +19,10 @@
 # * Note: You can assume the user will only enter integers separated
 #   by commas with no spaces.
 
+numbers = gets.chomp
+
+chart = numbers.split(",")
+chart.each do |x|
+  x.to_i.times { print "-" }
+  puts "\n"
+end
