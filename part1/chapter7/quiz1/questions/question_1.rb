@@ -18,4 +18,4 @@
 #
 # * Note: You can assume the user will only enter integers separated
 #   by commas with no spaces.
-
+gets.split(",").each { |n| puts '-' * n.to_i }

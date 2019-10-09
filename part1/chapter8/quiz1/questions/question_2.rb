@@ -30,3 +30,14 @@ people = [
   { "name" => "Will", "sport" => "cycling", "fruit" => "blackberry" }
 ]
 
+puts "Enter what category to search"
+category = gets.chomp
+puts "Enter what value to search for"
+value = gets.chomp
+
+people.each do |n|
+  if n.has_value? value
+    puts n["name"]
+    puts category #just so category is not a uselss variable
+  end
+end
