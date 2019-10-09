@@ -1,10 +1,9 @@
-require 'minitest/autorun'
-require_relative 'bowling'
+require "minitest/autorun"
+require_relative "bowling"
 
 # Common test data version: 1.2.0 1806718
 class BowlingTest < Minitest::Test
   def test_should_be_able_to_score_a_game_with_all_zeros
-    # skip
     game = Game.new
     rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rolls.each { |pins| game.roll(pins) }
