@@ -26,4 +26,19 @@
 
 # * Note: You can assume that the user will always enter either an
 #   integer or `stop`.
+def number_capture
+  puts "Give me a number: "
+  puts "To finish type 'stop'"
+  numbers = []
+  loop do
+    input = gets.chomp
+    if input == "stop"
+      break
+    else
+      numbers << input.to_i
+    end
+  end
+  puts numbers.sum
+end
 
+number_capture
