@@ -11,8 +11,7 @@ class Game
   end
 
   def score
-    calculate_roll_score
-    
+    calculate_total_score
     @score
   end
 
@@ -33,26 +32,33 @@ class Game
   end   
 
   def calculate_roll_score
-      if is_last_frame? 
-        @score += @rolls[@rolls_index_position + 1] + @rolls[@rolls_index_position + 2] + 10
-        @rolls_index_position = @rolls.length - 1 
-      elsif is_a_strike?
-        @score += @rolls[@rolls_index_position + 2] + @rolls[@rolls_index_position + 3] + 10
-        update_roll_position(1)
-      elsif is_a_spare?
-        @score += @rolls[@rolls_index_position + 2] + 10
-        update_roll_position(2)
-      else
-        @score += @rolls[@rolls_index_position] + @rolls[@rolls_index_position + 1]
-        update_roll_position(2)
-      end
-      @frame += 1
+    puts @rolls[@rolls_index_position]
+    if is_last_frame?
+        if is_a_strike?
+          @score += @rolls[@rolls_index_position + 1] + @rolls[@rolls_index_position + 2] + 10
+        elsif is_a_spare?
+          @score += @rolls[@rolls_index_position + 2] + 10
+        else
+          @score += @rolls[@rolls_index_position] + @rolls[@rolls_index_position + 1]
+        end
+      @rolls_index_position = @rolls.length - 1 
+    elsif is_a_strike?
+      @score += @rolls[@rolls_index_position + 1] + @rolls[@rolls_index_position + 2] + 10
+      update_roll_position(1)
+    elsif is_a_spare?
+      @score += @rolls[@rolls_index_position + 2] + 10
+      update_roll_position(2)
+    else
+      @score += @rolls[@rolls_index_position] + @rolls[@rolls_index_position + 1]
+      update_roll_position(2)
+    end
+    @frame += 1
   end
 
   def calculate_total_score
     while @rolls_index_position < @rolls.length - 1 
       calculate_roll_score
-      puts "frame: #{frame} index: #{@rolls_index_position} score: #{@score}" 
+      puts "frame: #{@frame} index: #{@rolls_index_position} score: #{@score}" 
     end
   end
 end
