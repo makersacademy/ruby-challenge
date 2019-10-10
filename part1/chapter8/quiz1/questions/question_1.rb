@@ -16,5 +16,24 @@
 # * Note: You can assume that the user will enter a word that only
 #   contains letters and blanks.  You can assume the word will be in
 #   uppercase.
+score = 0
+points1 = "EAIONRTLSU"
+points2 = "DG"
+points3 = "BCMP"
+points4 = "FHVWY"
+points5 = "K"
+points6 = "JX"
+points7 = "QZ"
 
+puts "What is your word?"
+word = gets.chomp.upcase
 
+score += 1 * word.count(points1)
+score += 2 * word.count(points2)
+score += 3 * word.count(points3)
+score += 4 * word.count(points4)
+score += 5 * word.count(points5)
+score += 8 * word.count(points6)
+score += 10 * word.count(points7)
+
+puts score

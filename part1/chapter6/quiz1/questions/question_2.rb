@@ -20,3 +20,27 @@
 # * Note: You can assume the players will only ever input `rock`,
 #   `paper` or `scissors`.
 
+puts "Player 1 please choose rock, paper, or scissors:"
+player1_input = gets.chomp()
+puts "Player 2 please choose rock, paper, or scissors:"
+player2_input = gets.chomp()
+
+if player1_input.downcase == "rock" and player2_input.downcase == "scissors"
+  puts "Player 1 wins"
+elsif player1_input.downcase == "rock" and player2_input.downcase == "rock"
+  puts "It's a draw"
+elsif player1_input.downcase == "rock" and player2_input.downcase == "paper"
+  puts "Player 2 wins"
+elsif player1_input.downcase == "scissors" and player2_input.downcase == "paper"
+  puts "Player 1 wins"
+elsif player1_input.downcase == "scissors" and player2_input.downcase == "scissors"
+  puts "It's a draw"
+elsif player1_input.downcase == "scissors" and player2_input.downcase == "rock"
+  puts "Player 2 wins"
+elsif player1_input.downcase == "paper" and player2_input.downcase == "rock"
+  puts "Player 1 wins"
+elsif player1_input.downcase == "paper" and player2_input.downcase == "paper"
+  puts "It's a draw"
+elsif player1_input.downcase == "paper" and player2_input.downcase == "scissors"
+  puts "Player 2 wins"
+end
