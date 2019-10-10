@@ -27,3 +27,14 @@
 # * Note: You can assume that the user will always enter either an
 #   integer or `stop`.
 
+arr_of_num = []
+
+puts "Give me a number"
+num = gets.chomp
+while num != "stop" do
+  arr_of_num.push(num.to_i)
+  puts "Give me a number"
+  num = gets.chomp
+end
+
+puts arr_of_num.sum
