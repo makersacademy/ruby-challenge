@@ -1,0 +1,16 @@
+class FileReader
+    def initialize(path)
+        @filePath = path
+    end
+    def OpenFile
+        File.open(@filePath).each do |word|
+            puts word
+        end
+    end
+    def Read(command, word)
+    end
+end
+
+reader = FileReader.new("input.txt")
+reader.OpenFile()
+#reader.Read("grep", "hello")
