@@ -36,6 +36,7 @@ describe 'Handshake' do
     30=>["jump", "close your eyes", "double blink"],
     31=>["jump", "close your eyes", "double blink", "wink"],
     32=>[]
+    #back to original order
   }
   expected_values.each do 
     |val, expected| 
