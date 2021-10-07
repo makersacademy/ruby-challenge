@@ -1,7 +1,6 @@
 ### Wednesday Challenge!
 
 #### Instructions
-  * Challenge time: until the end of the Wednesday
   * Feel free to use google, your notes, books, etc. but work on your own
   * There is _no_ requirement to complete all the exercises, please work on what
   is useful for you.
