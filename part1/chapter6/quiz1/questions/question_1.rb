@@ -27,3 +27,13 @@
 # * Note: You can assume that the user will always enter either an
 #   integer or `stop`.
 
+nums = []
+while true do
+  puts "Give me a number"
+  num = gets.downcase.chomp
+  nums << num.to_i
+  if num == "stop"
+    puts nums.sum
+    break
+  end
+end
